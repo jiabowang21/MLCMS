@@ -1,0 +1,183 @@
+%%
+% imports for the exercise sheets
+%
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm} 
+\usepackage{algpseudocode} 
+\algnewcommand{\IfThenElse}[3]{% \IfThenElse{<if>}{<then>}{<else>}
+  \State \algorithmicif\ #1\ \algorithmicthen\ #2\ \algorithmicelse\ #3}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{ 
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{--}
+
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+
+\usepackage{hyperref}
+
+\usepackage{amsthm}
+\newtheorem{lem}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{rem}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{ter}{Terminology}
+
+\usepackage{graphicx}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\SPDk}{\mathbb{P}^k}
+\newcommand{\vol}{\text{vol}}
+
+\newcommand{\Figref}[1]{Figure~\ref{#1}}
+\newcommand{\figref}[1]{figure~\ref{#1}}
+\newcommand{\Eqnref}[1]{Equation~(\eqref{#1})}
+\newcommand{\eqnref}[1]{equation~(\eqref{#1})}
+
+\usepackage{float}
+\usepackage{tabularx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{totcount}
+\newtotcounter{taskCounter}
+\newtotcounter{pointCounter}
+\newenvironment{task}[1]{\noindent\stepcounter{taskCounter}\textbf{Report on task #1}\smallbreak\hrule\smallbreak}{\smallbreak\hrule\bigbreak}
+
+
+\title{Report for exercise \exerciseNumber~from group~\groupNumber}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\providecommand{\versiondate}{\today}
+
+\lhead{Exercise sheet \exerciseNumber}
+\chead{Master Praktikum: Modelling and Simulation of Crowds WS2022/23}
+\rhead{TUM}
+\lfoot{Report of Group \groupNumber}
+\cfoot{\thepage}
+\rfoot{Last compiled: \versiondate}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\frontpage}{
+\begin{center}
+\textbf{\thetitle}\\~\\
+\end{center}
+\begin{table}[H]
+\begin{tabular}{ll}
+Tasks addressed:&\total{taskCounter}\\
+Authors:&\authorA\\
+&\authorB\\
+&\authorC\\
+Last compiled:&\versiondate\\
+Source code:&\sourceCodeLink
+\end{tabular}
+\end{table}
+\vfill
+The work on tasks was divided in the following way:
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X|p{2cm}|p{2cm}}
+\workPerAuthor
+\end{tabularx}
+\end{table}
+\newpage
+}
+
+
+\usepackage{csvsimple}
+\usepackage[round-mode=places, round-integer-to-decimal, round-precision=4,
+    table-format = 1.4, 
+    table-number-alignment=center,
+    round-integer-to-decimal]{siunitx}
+
+\begin{filecontents*}{pedestrian_records.csv}
+id,age,expected_speed,real_speed
+34,19,2.2626140044332383,2.227272727272727
+28,23,2.0700413935501727,2.0416666666666665
+33,23,2.0679226648511855,2.0416666666666665
+5,40,1.8606775661769244,1.8148148148148149
+45,35,1.7793918769286883,1.75
+11,26,1.728591068450894,1.6896551724137931
+31,24,1.6550880474807992,1.6333333333333333
+36,26,1.6829926254717111,1.6333333333333333
+42,29,1.64597148257722,1.6333333333333333
+24,24,1.5837790879854388,1.5806451612903225
+32,58,1.5405490546592486,1.53125
+12,37,1.499876674569721,1.4848484848484849
+43,19,1.5110510201690972,1.4848484848484849
+22,24,1.4629414084157466,1.4411764705882353
+29,28,1.4824884818394477,1.4411764705882353
+30,50,1.4600818630545707,1.4411764705882353
+40,25,1.4605886952023632,1.4411764705882353
+7,22,1.4333495247419161,1.4
+26,51,1.3864354104170407,1.3611111111111112
+44,57,1.3829543615268625,1.3611111111111112
+27,57,1.3334203074494406,1.3243243243243243
+35,25,1.3569925704783334,1.3243243243243243
+4,32,1.2973633189369191,1.2894736842105263
+8,59,1.2776870293887876,1.2564102564102564
+10,58,1.258068408827545,1.2564102564102564
+18,31,1.282620815397896,1.2564102564102564
+20,32,1.2686869546813793,1.2564102564102564
+37,46,1.2866345006167508,1.2564102564102564
+16,41,1.2385384732818703,1.225
+25,58,1.2539416513406914,1.225
+0,38,1.2219406662223529,1.1951219512195121
+9,51,1.1871016878253722,1.1666666666666667
+14,64,1.1694649731151314,1.1666666666666667
+38,41,1.172539973490902,1.1666666666666667
+41,52,1.1703506965304746,1.1666666666666667
+13,44,1.1630744989726405,1.1395348837209303
+39,62,1.1519485072143882,1.1395348837209303
+15,62,1.116107492441249,1.1136363636363635
+2,80,1.09641011670902,1.0888888888888888
+1,65,1.068861145013333,1.065217391304348
+21,42,1.0883556402223342,1.065217391304348
+3,79,1.0426807338195663,1.0425531914893618
+6,31,1.039429651889844,1.0208333333333333
+23,68,1.0273602842593716,1.0208333333333333
+48,74,0.9835593918854721,0.98
+46,76,0.8684178118198739,0.8596491228070176
+49,73,0.8621006300863451,0.8596491228070176
+17,73,0.7705855651335983,0.765625
+47,80,0.7419466240094087,0.7313432835820896
+19,57,0.7113355523168826,0.7101449275362319
+\end{filecontents*}
