@@ -1,0 +1,121 @@
+%%
+% imports for the exercise sheets
+%
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{--}
+
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{listings, xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,               
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{hyperref}
+
+\usepackage{amsthm}
+\newtheorem{lem}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{rem}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{ter}{Terminology}
+
+\usepackage{graphicx}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\SPDk}{\mathbb{P}^k}
+\newcommand{\vol}{\text{vol}}
+
+\newcommand{\Figref}[1]{Figure~\ref{#1}}
+\newcommand{\figref}[1]{figure~\ref{#1}}
+\newcommand{\Eqnref}[1]{Equation~(\eqref{#1})}
+\newcommand{\eqnref}[1]{equation~(\eqref{#1})}
+
+\usepackage{float}
+\usepackage{tabularx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{totcount}
+\newtotcounter{taskCounter}
+\newtotcounter{pointCounter}
+\newenvironment{task}[1]{\noindent\stepcounter{taskCounter}\textbf{Report on task #1}\smallbreak\hrule\smallbreak}{\smallbreak\hrule\bigbreak}
+
+\usepackage{array}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\title{Report for exercise 5~from group~\groupNumber}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\providecommand{\versiondate}{\today}
+
+\lhead{Exercise sheet 5}
+\chead{Master Praktikum: Modelling and Simulation of Crowds WS2022/23}
+\rhead{TUM}
+\lfoot{Report of Group \groupNumber}
+\cfoot{\thepage}
+\rfoot{Last compiled: \versiondate}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\frontpage}{
+\begin{center}
+\textbf{\thetitle}\\~\\
+\end{center}
+\begin{table}[H]
+\begin{tabular}{ll}
+Tasks addressed:&\total{taskCounter}\\
+Authors:&\authorA\\
+&\authorB\\
+&\authorC\\
+Last compiled:&\versiondate\\
+Source code:&\sourceCodeLink
+\end{tabular}
+\end{table}
+\vfill
+The work on tasks was divided in the following way:
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X|p{2cm}|p{2cm}}
+\workPerAuthor
+\end{tabularx}
+\end{table}
+\newpage
+}
